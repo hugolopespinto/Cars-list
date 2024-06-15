@@ -33,9 +33,11 @@
   
     ```docker exec -it hyperspace-python python manage.py {command} {args}```
   
-    ex1: ```docker exec -it hyperspace-python python manage.py clear_db```
-    ex2: ```docker exec -it hyperspace-python python manage.py create_db```
-    ex3: ```docker exec -it hyperspace-python python manage.py create_item "McLaren F1 LM"```
+   ex1: ```docker exec -it hyperspace-python python manage.py clear_db```
+
+   ex2: ```docker exec -it hyperspace-python python manage.py create_db```
+
+   ex3: ```docker exec -it hyperspace-python python manage.py create_item "McLaren F1 LM"```
 
 
 ## urls
