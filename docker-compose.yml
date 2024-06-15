@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+  python-service:
+    build: ./python-service
+    container_name: hyperspace-python
+    env_file:
+      - ./python-service/.env
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+    command: >
+      sh -c "python app.py && flask db upgrade && flask run --host=0.0.0.0 --port=5001"
+  nodejs-service:
+    build: ./nodejs-service
+    container_name: hyperspace-nodejs
+    ports:
+      - "3001:3001"
+    depends_on:
+      - python-service
+  client:
+    build: ./client
+    container_name: hyperspace-client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - nodejs-service
