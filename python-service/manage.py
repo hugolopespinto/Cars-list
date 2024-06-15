@@ -4,21 +4,16 @@ from dotenv import load_dotenv
 import os
 import sys
 
-# Charger les variables d'environnement depuis le fichier .env
 load_dotenv()
 
-# Initialisation de l'application Flask
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialisation de l'extension SQLAlchemy
 db = SQLAlchemy(app)
 
-# Import du modèle Element
 from app import Element
 
-# Définition du modèle Element
 class Element(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
