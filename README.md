@@ -19,6 +19,12 @@
    cd ..
    docker-compose up --build
 
+2. Troubleshooting
+
+   If the Python server encounters issues connecting to the database, follow these steps:
+   Navigate to the root directory of the project
+   Restart the Python service container:
+      ```docker restart hyperspace-python```
 
 ## urls
 
