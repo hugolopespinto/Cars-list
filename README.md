@@ -6,11 +6,19 @@
 
 ## Quick Start
 
-1. Clone the repository:
-   ```bash
+1. Clone the repository and install the project:
+
    git clone git@github.com:hugolopespinto/Cars-list.git
-   cd my-3tier-app
+   cd Cars-list
+   cd .\client\
+   npm install
    docker-compose up --build
+   cd ..
+   cd nodejs-service
+   npm install
+   cd ..
+   docker-compose up --build
+
 
 ## urls
 
