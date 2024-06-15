@@ -28,7 +28,6 @@ function App() {
         console.log('Item added successfully:', response.data);
         setNewItemName('');
         setShowAddForm(false);
-        // After adding item, fetch updated items list
         fetchItems();
       })
       .catch(error => {
@@ -40,7 +39,6 @@ function App() {
     axios.delete('http://localhost:3001/clear-items')
       .then(response => {
         console.log('Items cleared successfully:', response.data);
-        // After clearing items, fetch updated items list
         fetchItems();
       })
       .catch(error => {
@@ -50,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar /> {/* Utiliser le composant Navbar */}
+      <Navbar />
       <div className="button-container">
         <button onClick={() => setShowAddForm(true)}>Add a new car</button>
         <button onClick={handleClearList}>Clear the list</button>
